@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School Technology System Requirements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: #f5f5f0;
+            background-image: 
+                linear-gradient(90deg, transparent 79px, #e8e8e8 79px, #e8e8e8 81px, transparent 81px),
+                linear-gradient(#e8e8e8 1px, transparent 1px);
+            background-size: 100% 28px;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .paper {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fffef8;
+            padding: 60px 50px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .paper::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #ff9999;
+            opacity: 0.6;
+        }
+
+        h1 {
+            font-size: 2.2em;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            text-align: center;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-decoration-color: #3498db;
+        }
+
+        h2 {
+            font-size: 1.6em;
+            color: #2980b9;
+            margin-top: 35px;
+            margin-bottom: 15px;
+            padding-left: 30px;
+        }
+
+        p {
+            font-size: 1.3em;
+            line-height: 1.9;
+            color: #34495e;
+            margin-bottom: 20px;
+            padding-left: 30px;
+            text-align: justify;
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        li {
+            font-size: 1.25em;
+            line-height: 1.8;
+            color: #34495e;
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        li::before {
+            content: '✏️';
+            position: absolute;
+            left: -5px;
+        }
+
+        .highlight {
+            background: linear-gradient(transparent 60%, rgba(52, 152, 219, 0.3) 60%);
+            padding: 0 3px;
+        }
+
+        .note {
+            font-size: 1.1em;
+            color: #7f8c8d;
+            font-style: italic;
+            text-align: center;
+            margin-top: 40px;
+            padding: 15px;
+            border-top: 2px dashed #bdc3c7;
+        }
+
+        .checklist {
+            background: #f9f9f0;
+            border-radius: 10px;
+            padding: 20px 30px;
+            margin: 20px 0;
+        }
+
+        .checklist li::before {
+            content: '☐';
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="paper">
+        <h1>📚 School Technology System Requirements</h1>
+
+        <h2>Core Priorities</h2>
+        <p>
+            The new system should focus on <span class="highlight">reliability</span>, 
+            <span class="highlight">strong Wi-Fi</span>, <span class="highlight">scalability</span>, 
+            and <span class="highlight">equal access</span>. Reliability is important because 
+            teachers and students will use technology every day, so the network must work without 
+            frequent outages. Strong wireless coverage is necessary since every student will have 
+            a laptop and must be able to connect in classrooms and across campus. Scalability matters 
+            because the school must support many devices at once and still leave room for future growth. 
+            Equal access is also important, since all students need the same opportunity to use school 
+            technology for learning.
+        </p>
+
+        <h2>Security & Management</h2>
+        <p>
+            Security and device management are also essential features. The school must protect 
+            student and staff data with secure logins, firewalls, filtering, and backups. 
+            Centralized management helps the IT staff update software, monitor devices, and fix 
+            problems more efficiently.
+        </p>
+
+        <div class="checklist">
+            <h2>Requirements Checklist</h2>
+            <ul>
+                <li>Secure login authentication</li>
+                <li>Firewall protection</li>
+                <li>Content filtering</li>
+                <li>Automated backups</li>
+                <li>Centralized device management</li>
+                <li>Software update system</li>
+                <li>Remote monitoring capabilities</li>
+            </ul>
+        </div>
+
+        <h2>Classroom Support</h2>
+        <p>
+            The laptops and network should also support classroom needs such as online assignments, 
+            testing, video calls, and digital learning tools. These features are important because 
+            the goal is not just to replace old equipment, but to create a safe, dependable, and 
+            effective learning environment.
+        </p>
+
+        <p class="note">
+            ✨ Goal: Create a safe, dependable, and effective learning environment for all students and staff.
+        </p>
+    </div>
+</body>
+</html>
