@@ -1,77 +1,95 @@
-# Hand Control 🎤
+# Hand Control
 
-Real-time hand gesture recognition system using MediaPipe for controlling music playback, DJ effects, and interactive art applications.
+A hand-gesture control prototype built on top of a more modular hand-tracking foundation, focused on practical media control and future iOS-compatible adapters.
 
-## Features
+## What this version does
 
-- **Gesture DJ Controller** — Control volume, play/pause, and track switching with hand gestures
-- **Music Player** — Full media control using finger gestures
-- **Gesture Art** — Draw and create art with hand movements
-- **Animal Gestures** — Fun animal-themed gesture recognition
-- **3D Skeleton Rendering** — Visualize hand landmarks in 3D space
+This version is centered on a dual-hand safety model:
 
-## Requirements
+- **Left hand fist** = unlock controls
+- **Right hand open palm + rotation** = system volume up/down
+- **Right hand index up** = Apple Music play
+- **Right hand fist** = Apple Music pause
+- **Right hand peace sign** = Apple Music next track
+
+The goal is no longer just a fun gesture demo. This repo is being reshaped toward a more reusable hand-control system with clearer gesture detection, event flow, and adapter-based integrations.
+
+## Current status
+
+This is a **working prototype**, not the final mature release.
+
+What is already working:
+- Hand tracking with MediaPipe
+- Left-hand unlock model
+- Right-hand gesture detection for media actions
+- macOS system volume adapter
+- Apple Music adapter
+- On-screen debug labels for gesture states
+
+What still needs refinement:
+- Reduce gesture false positives
+- Improve left-fist reliability
+- Separate gesture recognition from output adapters more cleanly
+- Add a reusable event layer for future iOS control
+
+## Demo controls
+
+### Safety / arming
+- **Left hand fist** → arm the system
+- If the left hand is not recognized as a fist, right-hand actions should not trigger
+
+### Right-hand controls
+- **Open palm + rotate** → adjust system output volume
+- **Index up** → Apple Music play
+- **Fist** → Apple Music pause
+- **Peace sign (✌️)** → Apple Music next track
+  - includes an added **1.5 second interval** between repeated next-track triggers
+
+## Run the prototype
+
+Use a Python 3.11 virtual environment for best compatibility with MediaPipe.
 
 ```bash
-pip install opencv-python mediapipe numpy
-```
-
-Or install dependencies from `requirements.txt`:
-
-```bash
+python3.11 -m venv .venv311
+source .venv311/bin/activate
+pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-## Quick Start
+Run the current prototype:
 
 ```bash
-# Run the Gesture DJ Controller
-python gesture_dj.py
-
-# Run the Music Player
-python gesture_music_player.py
-
-# Run Gesture Art
-python gesture_art.py
+python handcontrol_demo_app.py --mode handcontrol-demo --flip --hc-system-volume --hc-apple-music
 ```
 
-## Supported Gestures
+## Demo images
 
-| Gesture | Action |
-|---------|--------|
-| ✋ Open Palm | Play |
-| ✊ Fist | Pause |
-| 👆 Index Up | Next Track |
-| 👊 Thumb Up | Volume Up |
-| 👍 Thumbs Down | Volume Down |
-| 🖖 Peace Sign | Toggle Effect |
-| 🤘 Rock Sign | Crossfade |
+Add screenshots to `demo-images/` and reference them here.
 
-## Project Structure
+Example placeholders:
+- `demo-images/handcontrol-window.png`
+- `demo-images/gesture-armed.png`
+- `demo-images/peace-next-track.png`
 
-```
-hand-control/
-├── gesture_dj.py           # DJ controller with volume rotation
-├── gesture_music_player.py # Music playback control
-├── gesture_art.py         # Interactive art creation
-├── animal_gestures.py     # Animal-themed gestures
-├── artistic_3d_skeleton.py# 3D skeleton visualization
-├── hand_tracker_new.py    # Base hand tracking
-└── models/
-    └── hand_landmarker.task # MediaPipe model
+When available, include them like this:
+
+```md
+![Hand control demo](demo-images/handcontrol-window.png)
 ```
 
-## Technical Details
+## Files added for the current prototype
 
-- **Framework**: MediaPipe Hands (Google)
-- **Input**: Webcam (640x480 recommended)
-- **Detection**: 21 hand landmarks, 3D coordinates
-- **Latency**: Real-time at 30fps
+- `handcontrol_demo_app.py`
+- `handcontrol_gestures.py`
+- `apple_music.py`
+- `system_volume.py`
 
-## License
+## Why this direction
 
-MIT License — feel free to use and modify!
+The longer-term goal is to make this project:
+- more reusable
+- easier to install
+- less tied to one local app
+- better suited for future iOS control adapters
 
----
-
-Built with ❤️ using MediaPipe
+So this version is a bridge from a fun local gesture prototype toward a more general hand-control platform.
