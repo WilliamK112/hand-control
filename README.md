@@ -77,12 +77,33 @@ When available, include them like this:
 ![Hand control demo](demo-images/handcontrol-window.png)
 ```
 
-## Files added for the current prototype
+## Files in this repo right now
 
+### Current prototype path
 - `handcontrol_demo_app.py`
 - `handcontrol_gestures.py`
 - `apple_music.py`
 - `system_volume.py`
+
+### Older experimental files still present
+- `gesture_dj.py`
+- `gesture_music_player.py`
+- `gesture_art.py`
+- `animal_gestures.py`
+- `artistic_3d_skeleton.py`
+- `hand_tracker_new.py`
+
+These older files are still kept for reference, but the repo is currently being shifted toward the newer hand-control prototype path above.
+
+## Install
+
+Minimal runtime dependencies currently listed in this repo:
+
+```bash
+pip install -r requirements.txt
+```
+
+For best compatibility, use Python 3.11.
 
 ## Why this direction
 
